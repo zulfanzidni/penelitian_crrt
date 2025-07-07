@@ -52,8 +52,8 @@ def main():
         st.write("Expert: **dr. Reza Fahlevi, Sp.A (RSCM UI)**")
         st.download_button("Download Data", data=df.to_csv(), file_name="data.csv", mime="text/csv", use_container_width=True, icon=":material/download:")
 
-    patient_name = st.text_input("Patient Name")
-    patient_id = st.text_input("Patient ID")
+    patient_name = st.text_input("Patient Name", key="patient_name")
+    patient_id = st.text_input("Patient ID", key="patient_id")
     date = datetime.now().strftime("%d-%m-%Y")
 
     # Define variables and their upper limits with labels
