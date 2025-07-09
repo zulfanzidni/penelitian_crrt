@@ -42,15 +42,15 @@ st.set_page_config(
 
 def main():
     # Establish the connection
-    conn = st.connection("gsheets", type=GSheetsConnection)
-    df = conn.read()
+    # conn = st.connection("gsheets", type=GSheetsConnection)
+    # df = conn.read()
     st.title("Pediatric CRRT Calculator for Survival Prediction (PCCSP)")
     with st.sidebar:
         st.write("Credits")
         st.write("Developed by: **Zulfan Zidni Ilhama** [LinkedIn](https://www.linkedin.com/in/zulfanzidni/)")
         st.write("Supervised by: **Retno Aulia Vinarti, M.Kom., Ph.D.** [Email](ra_vinarti@its.ac.id)")
         st.write("Expert: **dr. Reza Fahlevi, Sp.A (RSCM UI)**")
-        st.download_button("Download Data", data=df.to_csv(), file_name="data.csv", mime="text/csv", use_container_width=True, icon=":material/download:")
+        # st.download_button("Download Data", data=df.to_csv(), file_name="data.csv", mime="text/csv", use_container_width=True, icon=":material/download:")
 
     patient_name = st.text_input("Patient Name", key="patient_name")
     patient_id = st.text_input("Patient ID", key="patient_id")
@@ -167,9 +167,9 @@ def main():
 
         if total_variables > 0:
             final_score = (within_limit / total_variables) * 100
-            new_row = pd.DataFrame([{"name": patient_name, "id": patient_id, "date": date, **user_data, "survival probability": final_score}])
-            df = pd.concat([df, new_row], axis=0, ignore_index=True)
-            conn.update(data=df, worksheet="crrt")
+            # new_row = pd.DataFrame([{"name": patient_name, "id": patient_id, "date": date, **user_data, "survival probability": final_score}])
+            # df = pd.concat([df, new_row], axis=0, ignore_index=True)
+            # conn.update(data=df, worksheet="crrt")
 
             st.success(f"The survival probability score is: {final_score:.2f}%")
             st.info(f"Total variables within the survivor criteria: {within_limit} \n\n Variables: {', '.join(within_limit_vars)} \n\n NB: Significant variables are counted twice.")
