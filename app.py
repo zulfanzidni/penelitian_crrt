@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import hmac
 from datetime import datetime
-from streamlit_gsheets import GSheetsConnection
 
 def check_password():
 
